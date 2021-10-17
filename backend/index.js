@@ -1,6 +1,7 @@
 const express = require("express");
 const http = require("http");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const Example = require("./models/Example");
 
 mongoose
@@ -10,6 +11,12 @@ mongoose
   );
 
 const app = express();
+app.use(cors());
+
+app.get("/all", async (req, res) => {
+  let allExamples = await Example.find();
+  res.json(allExamples);
+});
 
 app.post("/search", async (req, res) => {
   const newExample = await Example.create(req.query);
