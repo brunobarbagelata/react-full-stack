@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Home(props) {
   const [example, setExample] = useState([]);
@@ -20,14 +21,17 @@ function Home(props) {
       name,
       age,
     });
+    setExample([...example, ...[res.data]]);
   };
   const AllExamples = () => {
     return example.map((item) => {
       return (
         <div>
-          <h3>
-            {item.name}, {item.age}, {item._id}
-          </h3>
+          <Link to={`/oneexample/${item._id}`}>
+            <h3>
+              {item.name}, {item.age}
+            </h3>
+          </Link>
         </div>
       );
     });

@@ -20,7 +20,8 @@ app.get("/all", async (req, res) => {
 });
 
 app.get("/oneexample", async (req, res) => {
-  let oneExample = await Example.findByName();
+  let oneExample = await Example.findById(req.query.exampleId);
+  console.log(oneExample);
   res.json(oneExample);
 });
 
