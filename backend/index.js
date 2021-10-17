@@ -12,14 +12,20 @@ mongoose
 
 const app = express();
 app.use(cors());
+app.use(express.json()); //for req.body
 
 app.get("/all", async (req, res) => {
   let allExamples = await Example.find();
   res.json(allExamples);
 });
 
-app.post("/search", async (req, res) => {
-  const newExample = await Example.create(req.query);
+app.get("/oneexample", async (req, res) => {
+  let oneExample = await Example.findByName();
+  res.json(oneExample);
+});
+
+app.post("/newexample", async (req, res) => {
+  const newExample = await Example.create(req.body);
   console.log(newExample);
   res.json(newExample);
 });
