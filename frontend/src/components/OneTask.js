@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function OneExampleDetail(props) {
+function OneTask(props) {
   const [example, setExample] = useState({});
 
   useEffect(async () => {
@@ -20,4 +20,4 @@ function OneExampleDetail(props) {
   );
 }
 
-export default OneExampleDetail;
+export default OneTask;

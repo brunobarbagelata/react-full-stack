@@ -4,34 +4,32 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function Home(props) {
-  const [example, setExample] = useState([]);
-  let [name, setName] = useState("");
-  let [age, setAge] = useState(0);
+  const [taskList, setTaskList] = useState([]);
+  let [task, setTask] = useState("");
 
   useEffect(async () => {
-    let res = await axios.get("http://localhost:5000/all");
-    setExample(res.data);
-    console.log(example);
+    let res = await axios.get("http://localhost:5000/alltasks");
+    setTaskList(res.data);
+    console.log(taskList);
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let res = await axios.post(`http://localhost:5000/newexample`, {
-      name,
-      age,
+    let res = await axios.post(`http://localhost:5000/newtask`, {
+      name: task,
     });
-    setExample([...example, ...[res.data]]);
+    setTaskList([...taskList, ...[res.data]]);
   };
   const AllExamples = () => {
-    return example.map((item) => {
+    return taskList.map((item) => {
       return (
         <div>
           <Link to={`/oneexample/${item._id}`}>
-            <h3>
-              {item.name}, {item.age}
-            </h3>
+            <h3>{item.name}</h3>
           </Link>
+          <button>Edit</button>
+          <button>Delete</button>
         </div>
       );
     });
@@ -39,11 +37,10 @@ function Home(props) {
   return (
     <div>
       {" "}
-      <h1>app.js</h1>
+      <h1>My tasks</h1>
       <form onSubmit={handleSubmit}>
-        <input onChange={(e) => setName(e.target.value)} placeholder="name" />
-        <input onChange={(e) => setAge(e.target.value)} placeholder="age" />
-        <button>Add example</button>
+        <input onChange={(e) => setTask(e.target.value)} placeholder="task" />
+        <button>Add task</button>
       </form>
       <AllExamples />
     </div>
