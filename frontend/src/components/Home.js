@@ -40,12 +40,12 @@ function Home(props) {
     <div>
       {" "}
       <h1>app.js</h1>
-      <AllExamples />
       <form onSubmit={handleSubmit}>
         <input onChange={(e) => setName(e.target.value)} placeholder="name" />
         <input onChange={(e) => setAge(e.target.value)} placeholder="age" />
         <button>Add example</button>
       </form>
+      <AllExamples />
     </div>
   );
 }
