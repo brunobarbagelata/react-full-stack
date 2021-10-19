@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/oneexample/:exampleId" component={OneTask} />
+        <Route exact path="/task/:exampleId" component={OneTask} />
       </Switch>
     </div>
   );

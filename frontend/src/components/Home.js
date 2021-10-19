@@ -8,16 +8,15 @@ function Home(props) {
   let [task, setTask] = useState("");
 
   useEffect(async () => {
-    let res = await axios.get("http://localhost:5000/alltasks");
+    let res = await axios.get("http://localhost:5000/all");
     setTaskList(res.data);
-    console.log(taskList);
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let res = await axios.post(`http://localhost:5000/newtask`, {
-      name: task,
+    let res = await axios.post(`http://localhost:5000/new`, {
+      task: task,
     });
     setTaskList([...taskList, ...[res.data]]);
   };
@@ -25,10 +24,12 @@ function Home(props) {
     return taskList.map((item) => {
       return (
         <div>
-          <Link to={`/oneexample/${item._id}`}>
-            <h3>{item.name}</h3>
+          <Link to={`/task/${item._id}`}>
+            <h3>{item.task}</h3>
           </Link>
+
           <button>Edit</button>
+
           <button>Delete</button>
         </div>
       );
