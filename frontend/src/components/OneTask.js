@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 function OneTask(props) {
   const [example, setExample] = useState({});
   let [task, setTask] = useState("");
+  let [description, setDescription] = useState("");
 
   useEffect(async () => {
     let res = await axios.get(
