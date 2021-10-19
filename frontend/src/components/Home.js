@@ -20,6 +20,16 @@ function Home(props) {
     });
     setTaskList([...taskList, ...[res.data]]);
   };
+
+  const deleteTask = async (id) => {
+    console.log("working", id);
+    let res = await axios.post(`http://localhost:5000/delete`, {
+      id: id,
+    });
+    console.log(res.data);
+    alert(`Task: ${res.data.task} has been deleted`);
+    window.location.reload();
+  };
   const AllExamples = () => {
     return taskList.map((item) => {
       return (
@@ -28,9 +38,7 @@ function Home(props) {
             <h3>{item.task}</h3>
           </Link>
 
-          <button>Edit</button>
-
-          <button>Delete</button>
+          <button onClick={() => deleteTask(item._id)}>Delete</button>
         </div>
       );
     });

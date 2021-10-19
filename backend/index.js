@@ -31,11 +31,16 @@ app.post("/new", async (req, res) => {
 });
 
 app.post("/edittask", async (req, res) => {
-  const taskEdited = await Task.findByIdAndUpdate(
-    req.body.id,
-    { task: req.body.task },
-    { new: true }
-  );
+  const taskEdited = await Task.findByIdAndUpdate(req.body.id, req.body, {
+    new: true,
+  });
+
+  res.json(taskEdited);
+});
+
+app.post("/delete", async (req, res) => {
+  const taskEdited = await Task.findByIdAndDelete(req.body.id);
+  console.log(req.body.id);
   res.json(taskEdited);
 });
 
