@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 function Home(props) {
   const [taskList, setTaskList] = useState([]);
@@ -38,7 +39,9 @@ function Home(props) {
             <h3>{item.task}</h3>
           </Link>
 
-          <button onClick={() => deleteTask(item._id)}>Delete</button>
+          <Button variant="danger" onClick={() => deleteTask(item._id)}>
+            Delete
+          </Button>
         </div>
       );
     });

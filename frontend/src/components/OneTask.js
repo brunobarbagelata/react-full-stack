@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Card from "react-bootstrap/Card";
 
 function OneTask(props) {
   const [example, setExample] = useState({});
@@ -50,6 +51,14 @@ function OneTask(props) {
         <br />
         <button>Edit task</button>
       </form>
+      <Card style={{ width: "18rem" }}>
+        <Card.Img variant="bottom" src="../../public/task.png" />
+        <Card.Body>
+          <Card.Title>{example.task}</Card.Title>
+          <Card.Text>{example.description}</Card.Text>
+        </Card.Body>
+      </Card>
+      <img src="../../public/task.png" alt="img" />
     </div>
   );
 }
