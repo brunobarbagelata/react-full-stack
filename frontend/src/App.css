@@ -3,5 +3,12 @@
 }
 
 body {
-  background-color: darkgrey;
+  background-color: blue;
+}
+
+.card1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
 }
