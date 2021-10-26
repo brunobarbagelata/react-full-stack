@@ -26,7 +26,7 @@ function Home(props) {
     let res = await axios.post(`http://localhost:5000/delete`, {
       id: id,
     });
-    window.location.reload();
+    setTaskList(res.data);
   };
   const AllExamples = () => {
     return taskList.map((item) => {

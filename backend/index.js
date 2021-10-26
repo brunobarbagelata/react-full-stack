@@ -41,7 +41,8 @@ app.post("/edittask", async (req, res) => {
 app.post("/delete", async (req, res) => {
   const taskEdited = await Task.findByIdAndDelete(req.body.id);
   console.log(req.body.id);
-  res.json(taskEdited);
+  const newTasks = await Task.find();
+  res.json(newTasks);
 });
 
 app.listen(process.env.PORT || 5000);
