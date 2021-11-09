@@ -22,6 +22,12 @@ function Home(props) {
     setTaskList([...taskList, ...[res.data]]);
   };
 
+  const deleteTask = async (id) => {
+    let res = await axios.post(`http://localhost:5000/delete`, {
+      id: id,
+    });
+    setTaskList(res.data);
+  };
   const AllExamples = () => {
     return taskList.map((item) => {
       return (
