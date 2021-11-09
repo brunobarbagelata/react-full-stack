@@ -2,8 +2,8 @@ This is the Readme file
 
 ## Features
 
-- See nearby event suggestions
-- Search events by name, location and date
-- See event details
-- Leave comments
+- Add tasks to your list
+- See task details
+- Edit task details
+- Delete task
 - Optimized for mobile
