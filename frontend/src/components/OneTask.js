@@ -81,7 +81,7 @@ function clean(obj) {
     // we creat a for loop with the variable propName. the for loop is looking for
     //if the propName is found in the obj. if found
     if (!obj[propName]) {
-      // if the obj does not have the parameter
+      // if the obj does not have the parameter.
       delete obj[propName];
       // delete the obj from the result
     }
