@@ -1,5 +1,7 @@
 # My Tasks
 
+This is a simple tasks app
+
 ## Features
 
 - Add tasks to your list
