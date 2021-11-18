@@ -1,6 +1,6 @@
 # My Tasks
 
-This is a simple tasks app
+This is a simple fullstack app
 
 ## Features
 
