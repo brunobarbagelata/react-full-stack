@@ -26,3 +26,14 @@
   margin-bottom: 10px;
   background-color: #afe9c9;
 }
+
+.add-button {
+  margin-top: 10px;
+}
+
+.all-tasks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

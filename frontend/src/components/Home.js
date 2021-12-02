@@ -57,9 +57,15 @@ function Home(props) {
           onChange={(e) => setTask(e.target.value)}
           placeholder="task"
         />
-        <button>Add task</button>
+        <br />
+        <Button className="add-button" variant="success" size="sm">
+          Add task
+        </Button>
       </form>
-      <AllExamples />
+      <h1>List</h1>
+      <div className="all-tasks">
+        <AllExamples />
+      </div>
     </div>
   );
 }
