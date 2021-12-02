@@ -16,7 +16,21 @@ app.use(express.json()); //for req.body
 
 app.get("/all", async (req, res) => {
   let allTasks = await Task.find();
-  res.json(allTasks);
+  res.json(
+    allTasks.sort(function (a, b) {
+      var nameA = a.task.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.task.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    })
+  );
 });
 
 app.get("/task", async (req, res) => {
