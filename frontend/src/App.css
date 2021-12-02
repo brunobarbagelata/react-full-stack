@@ -8,3 +8,21 @@
   align-items: center;
   margin: 20px;
 }
+
+.links {
+  text-decoration: none;
+}
+
+.links:hover {
+  color: darkseagreen;
+}
+
+.each-task {
+  width: 250px;
+  margin: auto;
+  border: 3px solid #000000;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #afe9c9;
+}

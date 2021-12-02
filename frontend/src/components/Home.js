@@ -31,8 +31,8 @@ function Home(props) {
   const AllExamples = () => {
     return taskList.map((item) => {
       return (
-        <div>
-          <Link to={`/task/${item._id}`}>
+        <div className="each-task">
+          <Link className="links" to={`/task/${item._id}`}>
             <h3>{item.task}</h3>
           </Link>
 
